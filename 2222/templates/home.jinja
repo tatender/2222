@@ -57,6 +57,16 @@
         <button onclick="send()">Send</button>
         <button onclick="leave()">Leave Room</button>
     </section>
+
+    <!-- Friends list -->
+    <section id="friends_list">
+        <h2>Friends List</h2>
+        <ul id="friends">
+            {% for name in friends_list %}
+                <li>{{name}}</li>
+            {% endfor %}
+        </ul>
+    </section>
 </main>
 
 <script src="/static/js/libs/socket.io.min.js"></script>

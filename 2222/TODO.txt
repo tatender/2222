@@ -1,0 +1,35 @@
+ONLY TOUCH DP.PY
+CAN MAKE NEW HTML FILE TO STORE ACCOUNTS
+
+hash function in db.py
+
+app.py: sets up routes for handling different pages, user 
+authentication and integrates WebSocket functionality using 
+Flask-SocketIO
+
+db.py: provides basic functionality to interact with the SQLite
+database, including inserting new users and retrieving user information
+
+models.py: defines the data models used in the application and provides
+functionality to manage rooms for messaging purposes
+
+socket_routes.py: facilitates real-time communication between clients
+using WebSocket connections. It handles events related to connecting, 
+disconnecting, sending messages, joining and leaving rooms
+
+base.jinja: the parent for all child templates
+
+404.jinja: provides a simple error message 
+
+home.jinja: provides the main functionality for the chat application,
+including user interaction, WebSocket communication and UI updates
+
+index.jinja: simple welcome message and links to sign-up and login pages
+
+login.jinja: a form for users to log in with their username and password
+and handles the login process using JavaScript and Axios for making HTTP
+requests
+
+signup.jinja:a form for users to log in with their username and password
+and handles the login process using JavaScript and Axios for making HTTP
+requests

@@ -18,6 +18,9 @@ import db
 
 room = Room()
 
+#stores list of friends
+friends_list = []
+
 # when the client connects to a socket
 # this event is emitted when the io() function is called in JS
 @socketio.on('connect')
@@ -61,6 +64,9 @@ def join(sender_name, receiver_name):
 
     room_id = room.get_room_id(receiver_name)
 
+    #add users to each other's friends list
+    add_friends(sender_name, receiver_name)
+
     # if the user is already inside of a room 
     if room_id is not None:
         
@@ -79,6 +85,15 @@ def join(sender_name, receiver_name):
     join_room(room_id)
     emit("incoming", (f"{sender_name} has joined the room. Now talking to {receiver_name}.", "green"), to=room_id)
     return room_id
+
+def add_friends(user1, user2):
+    #add user1 to user2's friends list
+    if user1 not in friends_list:
+        friends_list.append(user1)
+
+    #add user2 to user1's friends list
+    if user2 not in friends_list:
+        friends_list.append(user2)
 
 # leave room event handler
 @socketio.on("leave")

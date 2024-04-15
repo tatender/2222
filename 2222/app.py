@@ -80,7 +80,11 @@ def page_not_found(_):
 def home():
     if request.args.get("username") is None:
         abort(404)
-    return render_template("home.jinja", username=request.args.get("username"))
+
+    friends_list=socket_routes.friends_list
+    print("Friends List: ", friends_list)
+    
+    return render_template("home.jinja", username=request.args.get("username"), friends_list=socket_routes.friends_list)
 
 
 
